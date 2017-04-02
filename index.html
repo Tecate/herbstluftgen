@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/root.css">
+		<script src="https://cdn.jsdelivr.net/jquery/3.0.0/jquery.min.js"></script>
+		<script src="js/herbstluftgen.js"></script>
+		<style type="text/css"></style>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body>
+		<div id="desktop-container">
+			<div id="desktop-bar">
+				<div class="bar-button bar-button-active">1</div>
+				<div class="bar-button">2</div>
+				<div class="bar-button">3</div>
+				<div class="bar-button">4</div>
+				<div class="bar-button">5</div>
+				<div class="bar-button">6</div>
+				<div class="bar-button">7</div>
+				<div class="bar-button">8</div>
+				<div class="bar-button">9</div>
+			</div>
+			<div class="desktop-frame desktop-frame-active">
+				<div class="desktop-window window-active">
+					<div class="window-content">
+						This is a regular tiled window.
+					</div>
+				</div>
+				<div class="desktop-window">
+					<div class="window-content">
+						This is a regular tiled window.
+					</div>
+				</div>
+			</div>
+			<div class="desktop-frame">
+				<div class="desktop-window window-floating">
+					<div class="window-content">
+						This is a floating window. Note the extra border.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="settings-container">
+			<div class="settings-section" id="settings-head">
+				<h1>Herbstluftgen</h1>
+				<h2>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> autostart config generator.</h2>
+			</div>
+			<div class="settings-section">
+				<h1>General Settings</h1>
+				<div class="settings-subsection">
+					<h2>Background Settings</h2>
+					<div class="input-container">
+						<h3>Background Color</h3>
+						<span>xsetroot -solid</span>
+						<input type="color" id="input-bg-color" value="#5A8E3A">
+					</div>
+
+					<div class="input-container">
+						<h3>Background Image URL</h3>
+						<p>You will need to use a local copy in your autostart.</p>
+						<input type="url" id="bg-img"><input id="bg-img-button" type="button" onclick="" value="Set">
+					</div>
+
+					<div class="input-container">
+						<h3>Background Display</h3>
+						<span>feh --bg-* url</span>
+						<p>How to apply the background image. Using feh.</p>
+						<select id="bg-display">
+							<option value="tile">Tile</option>
+							<option value="center">Center</option>
+							<option value="fill">Fill</option>
+							<option value="max">Max</option>
+							<option value="scale">Scale</option>
+						</select>
+					</div>
+				</div>
+				<div class="settings-subsection">
+					<h2>Other Settings</h2>
+
+						<div class="input-container">
+							<h3>Monitor Padding</h3>
+							<span>hc pad MONITOR [PADUP [PADRIGHT [PADDOWN [PADLEFT]]]]</span>
+							<p>Padding around outside of monitor.</p>
+							<input type="number" id="monitor-padding" min="0" value="0">
+						</div>
+
+<!-- THIS NEEDS TO BE IMPLEMENTED IN JS -->
+
+						<div class="input-container">
+							<h3>Window Gap</h3>
+							<span>hc set window_gap</span>
+							<p>The gap between windows within one frame in the tiling mode.</p>
+							<input type="number" id="window-gap" min="0" value="0">
+						</div>
+				</div>
+			</div>
+
+			<div class="settings-section">
+				<h1>Window Borders</h1>
+					<div class="settings-subsection">
+						<h2>Inner Border</h2>
+
+							<div class="input-container">
+								<h3>Inner Border Width</h3>
+								<span>hc attr theme.inner_width</span>
+								<input type="number" id="inner-border-width" min="0" value="1">
+							</div>
+
+							<div class="input-container">
+								<h3>Inner Border Active Color</h3>
+								<span>hc attr theme.active.inner_color</span>
+								<input type="color" id="inner-border-active" value="#3E4A00">
+							</div>
+
+							<div class="input-container">
+								<h3>Inner Border Inactive Color</h3>
+								<span>hc attr theme.inner_color</span>
+								<input type="color" id="inner-border-inactive" value="#000000">
+							</div>
+					</div>
+					<div class="settings-subsection">
+					<h2>Outer Border</h2>
+
+						<div class="input-container">
+							<h3>Outer Border Width</h3>
+							<span>hc attr theme.border_width</span>
+							<p>Outer border width minus the inner border width.</p>
+							<input type="number" id="outer-border-width" min="0" value="2">
+						</div>
+
+						<div class="input-container">
+							<h3>Outer Border Active Color</h3>
+							<span>hc attr theme.active.color</span>
+							<input type="color" id="outer-border-active" value="#9fbc00">
+						</div>
+
+						<div class="input-container">
+							<h3>Outer Border Inactive Color</h3>
+							<span>hc attr theme.normal.color</span>
+							<input type="color" id="outer-border-inactive" value="#454545">
+						</div>
+
+						<div class="input-container">
+							<h3>Outer Border Urgent Color</h3>
+							<span>hc attr theme.urgent.color</span>
+							<input type="color" id="outer-border-urgent" value="orange">
+						</div>
+					</div>
+					<div class="settings-subsection">
+					<h2>Floating Borders</h2>
+
+						<div class="input-container">
+							<h3>Floating Border Width</h3>
+							<span>hc attr theme.floating.border_width</span>
+							<p>The width of the main border minus the width of the inner and outer borders.</p>
+							<input type="number" id="floating-border-width" min="0" value="3">
+						</div>
+
+						<div class="input-container">
+							<h3>Floating Outer Border Width</h3>
+							<span>hc attr theme.floating.outer_width</span>
+							<p>The width of the outer most border on floating windows including the width of the inner 2 borders</p>
+							<!-- is 1 in autostart. does not need to include inner borders for config file -->
+							<input type="number" id="floating-outer-border-width" min="0" value="1">
+						</div>
+
+						<div class="input-container">
+							<h3>Floating Outer Border Inactive Color</h3>
+							<span>hc attr theme.floating.outer_color</span>
+							<input type="color" id="floating-outer-border-inactive" value="#000000">
+						</div>
+					</div>
+
+			</div>
+
+			<div class="settings-section">
+				<h1>Frame Styles</h1>
+				<div class="settings-subsection">
+					<h2>Frame Settings</h2>
+
+						<div class="input-container">
+							<h3>Frame Gap</h3>
+							<span>hc set frame_gap</span>
+							<p>Margin around outside of frames</p>
+							<input type="number" id="frame-gap" min="0" value="4">
+						</div>
+
+						<div class="input-container">
+							<h3>Frame Padding</h3>
+							<span>hc set frame_padding</span>
+							<p>Padding around windows inside a frame.</p>
+							<input type="number" id="frame-padding" min="0" value="0">
+						</div>
+
+						<div class="input-container">
+							<h3>Always Show Frame</h3>
+							<span>hc set always_show_frame</span>
+							<p>If set, all frames are displayed. If unset, only frames with focus or with windows in it are displayed.</p>
+							<input type="checkbox" id="always-show-frame">
+						</div>
+				</div>
+
+				<div class="settings-subsection">
+					<h2>Frame Border</h2>
+
+						<div class="input-container">
+							<h3>Frame Border Width</h3>
+							<span>hc set frame_border_width</span>
+							<input type="number" id="frame-border-width" min="0" value="1">
+						</div>
+
+						<div class="input-container">
+							<h3>Transparent Frame Border Width</h3>
+							<span>hc set frame_transparent_width</span>
+							<input type="number" id="trans-frame-border-width" min="0" value="0">
+						</div>
+						
+						<div class="input-container">
+							<h3>Frame Border Active Color</h3>
+							<span>hc set frame_border_active_color</span>
+							<input type="color" id="frame-border-active" value="#222222">
+						</div>
+
+						<div class="input-container">
+							<h3>Frame Border Inactive Color</h3>
+							<span>hc set frame_border_normal_color</span>
+							<input type="color" id="frame-border-inactive" value="#101010">
+						</div>
+				</div>
+
+				<div class="settings-subsection">
+					<h2>Frame Background</h2>
+
+						<div class="input-container">
+							<h3>Transparent Frame Background</h3>
+							<span>hc set frame_bg_transparent</span>
+							<input type="checkbox" id="trans-frame-bg">
+						</div>
+
+						<div class="input-container">
+							<h3>Frame Background Active Color</h3>
+							<span>hc set frame_bg_active_color</span>
+							<input type="color" id="frame-bg-active" value="#345F0C">
+						</div>
+						
+						<div class="input-container">
+							<h3>Frame Background Inactive Color</h3>
+							<span>hc set frame_bg_normal_color</span>
+							<input type="color" id="frame-bg-inactive" value="#565656">
+						</div>
+				</div>
+			</div>
+
+			<input type="submit" value="Submit">
+			<input type="reset">
+		</div>
+	</body>
+</html>
