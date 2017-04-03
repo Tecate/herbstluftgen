@@ -94,12 +94,49 @@
 	// background: #000000;
 }
 
+#config-output-container {
+	position: fixed;
+	top: 70vh;
+	right: 0px;
+	width: 35vw;
+	height: 30vh;
+	background: #121212;
+	color: #ffffff;
+	border-left: 1px solid #000000;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	#config-output {
+		overflow-y: scroll;
+		flex: 1 1 auto;
+	}
+	h1 {
+		margin: 0px;
+		border-bottom: 1px solid green;
+		padding: 5px;
+	}
+}
+
+// #config-output-container:after {
+// 	content: 'Config Output';
+// 	border-bottom: 1px solid #9fbc00;
+// 	color: #f2f2f2;
+// 	padding: 5px;
+// 	box-sizing: border-box;
+// 	font: 28px 'Montserrat', sans-serif;
+// 	position: absolute;
+// 	top: 0px;
+// 	left: 0px;
+// 	width: 100%;
+// 	display: block;
+// }
+
 #settings-container {
 	position: fixed;
 	top: 0px;
 	right: 0px;
 	width: 35vw;
-	height: 100vh;
+	height: 70vh;
 	background: #121212;
 	color: #ffffff;
 	border-left: 1px solid #000000;

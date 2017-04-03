@@ -74,12 +74,32 @@
 .desktop-frame-active {
   border-color: #222222; }
 
+#config-output-container {
+  position: fixed;
+  top: 70vh;
+  right: 0px;
+  width: 35vw;
+  height: 30vh;
+  background: #121212;
+  color: #ffffff;
+  border-left: 1px solid #000000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; }
+  #config-output-container #config-output {
+    overflow-y: scroll;
+    flex: 1 1 auto; }
+  #config-output-container h1 {
+    margin: 0px;
+    border-bottom: 1px solid green;
+    padding: 5px; }
+
 #settings-container {
   position: fixed;
   top: 0px;
   right: 0px;
   width: 35vw;
-  height: 100vh;
+  height: 70vh;
   background: #121212;
   color: #ffffff;
   border-left: 1px solid #000000;

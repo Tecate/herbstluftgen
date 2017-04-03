@@ -2,15 +2,24 @@ $( document ).ready(function() {
 
 	// clickable windows
 	$( ".desktop-window" ).click(function() {
-		if ( $( this ).hasClass( ".window-active" ) ) {
-			// window is already active
+		if ($(this).hasClass("window-active")) {
 		} else {
-			$( this ).toggleClass( "window-active" );
-			$( this ).parent().toggleClass( "desktop-frame-active" );
+			$(".desktop-window").removeClass("window-active");
+			$(this).toggleClass("window-active");
 
-			$( ".desktop-window" ).not( $( this ) ).hasClass("window-active").toggleClass( "window-active" );
-			$( ".desktop-frame" ).not( $( this ).hasClass("window-active").parent() ).toggleClass( "desktop-frame-active" );
+			$(".desktop-frame").removeClass("desktop-frame-active");
+			$(this).parent().toggleClass("desktop-frame-active");
 		}
+		// if ( $( this ).hasClass( ".window-active" ) ) {
+		// 	// window is already active
+		// 	alert("lol");
+		// } else {
+		// 	$( this ).toggleClass( "window-active" );
+		// 	$( this ).parent().toggleClass( "desktop-frame-active" );
+
+		// 	$( ".desktop-window" ).not( $( this ) ).hasClass("window-active").toggleClass( "window-active" );
+		// 	$( ".desktop-frame" ).not( $( this ).hasClass("window-active").parent() ).toggleClass( "desktop-frame-active" );
+		// }
 	});
 
 	// destop background color
@@ -121,6 +130,8 @@ $( document ).ready(function() {
 			frameBgInactive = "transparent";
 		}
 
+
+
 // 		#desktop-container { padding: " + monitorPadding + "px !important; } \
 
 		$("style").replaceWith( "<style> \
@@ -146,5 +157,7 @@ $( document ).ready(function() {
 	$("input").on("change",function(){
 		updateRender();
 	});
+
+	updateRender();
 
 });
