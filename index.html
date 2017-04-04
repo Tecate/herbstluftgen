@@ -37,7 +37,8 @@
 				</div>
 				<div class="desktop-window psudeo-float">
 					<div class="window-content">
-						This is a psuedo-floating window.
+						This is a psuedo-floating urgent window.
+						<button class="urgent-btn">Toggle Urgency</button>
 					</div>
 				</div>
 			</div>
@@ -92,7 +93,10 @@
 							<h3>Monitor Padding</h3>
 							<span>hc pad MONITOR [PADUP [PADRIGHT [PADDOWN [PADLEFT]]]]</span>
 							<p>Padding around outside of monitor.</p>
-							<input type="number" id="monitor-padding" min="0" value="0">
+							<input type="number" id="monitor-padding-top" min="0" value="16">
+							<input type="number" id="monitor-padding-right" min="0" value="0">
+							<input type="number" id="monitor-padding-bottom" min="0" value="0">
+							<input type="number" id="monitor-padding-left" min="0" value="0">
 						</div>
 
 <!-- THIS NEEDS TO BE IMPLEMENTED IN JS -->
@@ -154,7 +158,7 @@
 						<div class="input-container">
 							<h3>Outer Border Urgent Color</h3>
 							<span>hc attr theme.urgent.color</span>
-							<input type="color" id="outer-border-urgent" value="orange">
+							<input type="color" id="outer-border-urgent" value="#ffa500">
 						</div>
 					</div>
 					<div class="settings-subsection">
