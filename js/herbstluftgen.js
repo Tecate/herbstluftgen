@@ -8,7 +8,7 @@ $( document ).ready(function() {
 			$(this).toggleClass("window-active");
 
 			$(".desktop-frame").removeClass("desktop-frame-active");
-			$(this).parent().toggleClass("desktop-frame-active");
+			$(this).closest(".desktop-frame").toggleClass("desktop-frame-active");
 		}
 		// if ( $( this ).hasClass( ".window-active" ) ) {
 		// 	// window is already active
@@ -179,6 +179,7 @@ $( document ).ready(function() {
 		.window-floating { box-shadow: " + floatingInactive + "; } \
 		.window-active.window-floating { box-shadow: " + floatingActive + "; } \
 		.urgent { box-shadow: "+urgentBorder+"; }\
+		.window-gap { padding: "+windowGap+"px; }\
 		.desktop-frame { \
 			margin: " + frameGap + "px; \
 			margin-bottom: 0px; \
@@ -212,7 +213,7 @@ $( document ).ready(function() {
 		$("#config-output").append("\n");
 		$("#config-output").append("hc attr theme.active.color '"+outerBorderActive+"'\n");
 		$("#config-output").append("hc attr theme.normal.color '"+outerBorderInactive+"'\n");
-		$("#config-output").append("hc attr theme.urgent.color '"+outerBorderUrgent+"'\n"); // not implemented
+		$("#config-output").append("hc attr theme.urgent.color '"+outerBorderUrgent+"'\n");
 		$("#config-output").append("hc attr theme.inner_width "+innerBorderWidth+"\n");
 		$("#config-output").append("hc attr theme.inner_color '"+innerBorderInactive+"'\n");
 		$("#config-output").append("hc attr theme.border_width "+outerBorderWidth+"\n");
@@ -238,6 +239,13 @@ $( document ).ready(function() {
 
 	$(".urgent-btn").click(function() {
 	  $(this).parent().parent().toggleClass("urgent");
+	});
+	$(".float-btn").click(function() {
+	  $(this).parent().parent().toggleClass("psudeo-float");
+	});
+
+	$(".collapsable h1").click(function() {
+	  $(this).closest(".settings-section").toggleClass("settings-collapsed");
 	});
 
 	updateRender();

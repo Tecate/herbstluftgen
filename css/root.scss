@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'atari_st';
+    src: url('../fonts/atari_st/atarist8x16systemfont-webfont.woff2') format('woff2'),
+         url('../fonts/atari_st/atarist8x16systemfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #desktop-container {
 	position: relative;
 	width: 65vw;
@@ -58,11 +66,21 @@
 	background: #121212;
 	color: white;
 	box-sizing: border-box;
-
+	// margin: 10px;
 	// inactive tiling border
 	// outer, inner
 	// inner = inner + outer
 	box-shadow: 0px 0px 0px 2px #454545 inset, 0px 0px 0px 3px #000000 inset;
+}
+
+.window-gap {
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
 }
 
 .urgent {
@@ -130,6 +148,12 @@
 		overflow-y: scroll;
 		flex: 1 1 auto;
 		white-space: pre;
+		padding: 5px;
+		box-sizing: border-box;
+		background: #121212;
+		color: #f8f8f8;
+		border: 0px solid;
+		font-family: monospace;
 	}
 	h1 {
 		margin: 0px;
@@ -211,9 +235,25 @@
 	}
 }
 
-.settings-section {
-	padding: 30px 0px;
+.settings-collapsed {
+	height: 54px;
+	transition: height 0.25s;
 }
+
+.settings-section {
+	padding: 10px 0px;
+	overflow: hidden;
+	transition: height 0.25s;
+	h1 {
+		padding: 5px;
+	}
+}
+
+.collapsable h1:hover {
+	background: #3d3d3d;
+	cursor: pointer;
+}
+
 .settings-section:first-child { padding-top: 0px; }
 
 .settings-subsection {
@@ -267,10 +307,12 @@ input[type=color] {
 		border: 0px solid #9fbc00;
 		background: transparent;
 		color: #fff;
-		font: 36px 'Montserrat', sans-serif;
+		font: 36px 'atari_st', monospace;
 		margin-top: 0px;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #9fbc00;
+		font-smooth: never;
+		-webkit-font-smoothing : none;
 	}
 
 	h2 {
