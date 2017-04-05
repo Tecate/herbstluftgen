@@ -60,11 +60,11 @@
 		<div id="settings-container">
 			<div class="settings-section" id="settings-head">
 				<h1>Herbstluftgen</h1>
-				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator.</p>
+				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator. This may not be a pixel-perfect representation of what your theme might look like in hlwm, but it's close enough. If you find any bugs or have some feedback: email me at scum@memeware.net</p>
 			</div>
-			<div class="settings-section collapsable">
+			<div class="settings-section collapsable settings-section-collapsed">
 				<h1>General Settings</h1>
-				<div class="settings-subsection">
+				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Background Settings</h2>
 					<div class="input-container">
 						<h3>Background Color</h3>
@@ -83,7 +83,7 @@
 						<h3>Background Image URL</h3>
 						<span></span>
 						<p>You will need to use a local copy in your autostart.</p>
-						<input type="url" id="bg-img"><input id="bg-img-button" type="button" onclick="" value="Set">
+						<input type="file" id="bg-img-upload">
 					</div>
 
 					<div class="input-container">
@@ -99,7 +99,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="settings-subsection">
+				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Other Settings</h2>
 
 						<div class="input-container">
@@ -123,9 +123,9 @@
 				</div>
 			</div>
 
-			<div class="settings-section collapsable">
+			<div class="settings-section collapsable settings-section-collapsed">
 				<h1>Window Borders</h1>
-					<div class="settings-subsection">
+					<div class="settings-subsection settings-subsection-collapsed">
 						<h2>Inner Border</h2>
 
 							<div class="input-container">
@@ -146,7 +146,7 @@
 								<input type="color" id="inner-border-inactive" value="#000000">
 							</div>
 					</div>
-					<div class="settings-subsection">
+					<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Outer Border</h2>
 
 						<div class="input-container">
@@ -174,7 +174,7 @@
 							<input type="color" id="outer-border-urgent" value="#ffa500">
 						</div>
 					</div>
-					<div class="settings-subsection">
+					<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Floating Borders</h2>
 
 						<div class="input-container">
@@ -201,9 +201,9 @@
 
 			</div>
 
-			<div class="settings-section collapsable">
+			<div class="settings-section collapsable settings-section-collapsed">
 				<h1>Frame Styles</h1>
-				<div class="settings-subsection">
+				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Frame Settings</h2>
 
 						<div class="input-container">
@@ -228,7 +228,7 @@
 						</div>
 				</div>
 
-				<div class="settings-subsection">
+				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Frame Border</h2>
 
 						<div class="input-container">
@@ -257,7 +257,7 @@
 						</div>
 				</div>
 
-				<div class="settings-subsection">
+				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Frame Background</h2>
 
 						<div class="input-container">

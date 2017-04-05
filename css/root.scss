@@ -237,11 +237,17 @@ body {
 	h2 {
 		background: #121212;
 		color: #ffcc00;
+		margin-top: 0px;
 		margin-bottom: 0px;
 		padding-bottom: 10px;
 		padding-top: 10px;
 		padding-left: 10px;
 		font: 22px atari_st, sans-serif;
+		cursor: pointer;
+	}
+
+	h2:hover {
+		background: #3d3d3d;
 	}
 
 	h3 {
@@ -260,8 +266,12 @@ body {
 	}
 }
 
-.settings-collapsed {
+.settings-section-collapsed {
 	height: 54px;
+	transition: height 0.25s;
+}
+.settings-subsection-collapsed {
+	height: 44px;
 	transition: height 0.25s;
 }
 
@@ -284,6 +294,7 @@ body {
 .settings-subsection {
 	// padding-left: 10px;
 	background: #262626;
+	overflow: hidden;
 	// border-left: 1px solid #ffcc00;
 }
 
