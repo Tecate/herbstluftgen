@@ -6,6 +6,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'fixedsys';
+    src: url('../fonts/fsex300-webfont.woff2') format('woff2'),
+         url('../fonts/fsex300-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: fixedsys, sans-serif;
+}
+
 #desktop-container {
 	position: relative;
 	width: 65vw;
@@ -144,20 +156,21 @@
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0px -2px 10px rgba(0,0,0,0.5);
 	#config-output {
 		overflow-y: scroll;
 		flex: 1 1 auto;
 		white-space: pre;
 		padding: 5px;
 		box-sizing: border-box;
-		background: #121212;
+		background: #1a1a1a;
 		color: #f8f8f8;
 		border: 0px solid;
-		font-family: monospace;
+		font-family: fixedsys, monospace;
 	}
 	h1 {
 		margin: 0px;
-		border-bottom: 1px solid green;
+		border-bottom: 1px solid #9fbc00;
 		padding: 5px;
 		font: 12px monospace;
 	}
@@ -187,6 +200,7 @@
 // 	display: block;
 // }
 
+
 #settings-container {
 	position: fixed;
 	top: 0px;
@@ -206,7 +220,7 @@
 		//border: 1px solid #3d3d3d;
 		padding: 5px;
 		// text-align: center;
-		font: 28px 'Montserrat', sans-serif;
+		font: 24px 'atari_st', sans-serif;
 	}
 
 	h2 {
@@ -216,7 +230,7 @@
 		padding-bottom: 10px;
 		padding-top: 10px;
 		padding-left: 10px;
-		font: 22px 'Montserrat', sans-serif;
+		font: 22px atari_st, sans-serif;
 	}
 
 	h3 {
@@ -259,7 +273,7 @@
 .settings-subsection {
 	// padding-left: 10px;
 	background: #262626;
-	border-left: 1px solid #ffcc00;
+	// border-left: 1px solid #ffcc00;
 }
 
 .input-container {
@@ -303,20 +317,19 @@ input[type=color] {
 
 #settings-head {
 	h1 {
-		text-align: left;
+		text-align: center;
 		border: 0px solid #9fbc00;
 		background: transparent;
 		color: #fff;
 		font: 36px 'atari_st', monospace;
 		margin-top: 0px;
 		margin-bottom: 10px;
-		border-bottom: 1px solid #9fbc00;
+		// border-bottom: 1px solid #9fbc00;
 		font-smooth: never;
 		-webkit-font-smoothing : none;
 	}
 
-	h2 {
-		font: 16px 'Open Sans', sans-serif;
+	p {
 		color: #e7dfdd;
 	}
 	a { color: #ffcc00; text-decoration: none; }

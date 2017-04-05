@@ -60,7 +60,7 @@
 		<div id="settings-container">
 			<div class="settings-section" id="settings-head">
 				<h1>Herbstluftgen</h1>
-				<h2>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> autostart config generator.</h2>
+				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator.</p>
 			</div>
 			<div class="settings-section collapsable">
 				<h1>General Settings</h1>
@@ -73,7 +73,15 @@
 					</div>
 
 					<div class="input-container">
+						<h3>Window Background Color</h3>
+						<span>hc attr theme.background_color</span>
+						<p>Color behind window contents visible on resize.</p>
+						<input type="color" id="input-bg-color" value="#5A8E3A">
+					</div>
+
+					<div class="input-container">
 						<h3>Background Image URL</h3>
+						<span></span>
 						<p>You will need to use a local copy in your autostart.</p>
 						<input type="url" id="bg-img"><input id="bg-img-button" type="button" onclick="" value="Set">
 					</div>
