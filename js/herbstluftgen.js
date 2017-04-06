@@ -58,7 +58,7 @@ $( document ).ready(function() {
 	});
 
 	var bgImage = "";
-	var bgImageName = "";
+	var bgImageName = "image.jpg";
 	function updateRender() {
 		var bgColor = $("#input-bg-color").val();
 		// var bgImage = $("#bg-img").val();
@@ -177,9 +177,12 @@ $( document ).ready(function() {
 			}\
 			.desktop-window {\
 				box-shadow: " + tilingInactive + ";\
-				padding: "+innerBorderWidth+"px;\
+				padding: "+(innerBorderWidth+outerBorderWidth)+"px;\
 				background-color: "+windowBgColor+";\
 			} \
+			.desktop-window.window-floating {\
+				padding: 3px;\
+			}\
 			.window-active { box-shadow: " + tilingActive + "; } \
 			.window-floating { box-shadow: " + floatingInactive + "; } \
 			.window-active.window-floating { box-shadow: " + floatingActive + "; } \

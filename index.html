@@ -62,7 +62,7 @@
 				<h1>Herbstluftgen</h1>
 				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator. This may not be a pixel-perfect representation of what your theme might look like in hlwm, but it's close enough. If you find any bugs or have some feedback: email me at scum@memeware.net</p>
 			</div>
-			<div class="settings-section collapsable settings-section-collapsed">
+			<div class="settings-section collapsable">
 				<h1>General Settings</h1>
 				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Background Settings</h2>
@@ -75,7 +75,7 @@
 					<div class="input-container">
 						<h3>Window Background Color</h3>
 						<span>hc attr theme.background_color</span>
-						<p>Color behind window contents <b>only visible on resize</b>. You need to set your terminal colors in .Xresources.</p>
+						<p>The color behind window contents <u>only visible on resize</u>. You need to set your terminal colors in .Xresources. This color will be the background of the terminals in the render to the left.</p>
 						<input type="color" id="input-window-bg-color" value="#121212">
 					</div>
 
@@ -104,8 +104,8 @@
 
 						<div class="input-container">
 							<h3>Monitor Padding</h3>
-							<span>hc pad MONITOR [PADUP [PADRIGHT [PADDOWN [PADLEFT]]]]</span>
-							<p>Padding around outside of monitor.</p>
+							<span>hc pad MONITOR [UP] [RIGHT] [DOWN [LEFT]</span>
+							<p>Padding around outside of monitor. Use this to make room for your bars/panels.</p>
 							<input type="number" id="monitor-padding-top" min="0" value="16">
 							<input type="number" id="monitor-padding-right" min="0" value="0">
 							<input type="number" id="monitor-padding-bottom" min="0" value="0">
@@ -123,7 +123,7 @@
 				</div>
 			</div>
 
-			<div class="settings-section collapsable settings-section-collapsed">
+			<div class="settings-section collapsable">
 				<h1>Window Borders</h1>
 					<div class="settings-subsection settings-subsection-collapsed">
 						<h2>Inner Border</h2>
@@ -201,7 +201,7 @@
 
 			</div>
 
-			<div class="settings-section collapsable settings-section-collapsed">
+			<div class="settings-section collapsable">
 				<h1>Frame Styles</h1>
 				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Frame Settings</h2>

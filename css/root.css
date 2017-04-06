@@ -176,26 +176,28 @@ body {
     font: 24px 'atari_st', sans-serif; }
   #settings-container h2 {
     background: #121212;
-    color: #ffcc00;
+    color: #9fbc00;
     margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;
     font: 22px atari_st, sans-serif;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: background 0.25s; }
   #settings-container h2:hover {
-    background: #3d3d3d; }
+    transition: background 1s;
+    background: #000; }
   #settings-container h3 {
     margin-top: 0px;
     margin-bottom: 0px;
     color: #fff;
     background: rgba(0, 0, 0, 0.2);
     padding: 5px;
-    font: 16px 'Montserrat', sans-serif; }
+    font: 16px 'Montserrat', sans-serif;
+    text-transform: uppercase; }
   #settings-container p {
     font-size: 14px;
-    color: #999;
     margin-top: 0px;
     margin-bottom: 20px; }
 
@@ -212,10 +214,12 @@ body {
   overflow: hidden;
   transition: height 0.25s; }
   .settings-section h1 {
-    padding: 5px; }
+    padding: 5px;
+    transition: background 0.25s; }
 
 .collapsable h1:hover {
-  background: #3d3d3d;
+  background: #000;
+  transition: background 0.25s;
   cursor: pointer; }
 
 .settings-section:first-child {
@@ -224,6 +228,11 @@ body {
 .settings-subsection {
   background: #262626;
   overflow: hidden; }
+  .settings-subsection h2 {
+    transition: background 0.25s; }
+
+.input-container span:before {
+  content: '> '; }
 
 .input-container {
   padding: 10px 10px; }
@@ -233,8 +242,11 @@ body {
     margin-bottom: 10px;
     display: block;
     font-family: monospace;
+    font-size: 10px;
     color: #999;
     padding-bottom: 10px; }
+  .input-container p {
+    color: #fff; }
 
 .input-container:not(:last-child) {
   border-bottom: 10px solid #121212; }
@@ -258,14 +270,12 @@ input[type=color] {
   text-align: center;
   border: 0px solid #9fbc00;
   background: transparent;
-  color: #fff;
+  color: #ffcc00;
   font: 36px 'atari_st', monospace;
   margin-top: 0px;
   margin-bottom: 10px;
   font-smooth: never;
   -webkit-font-smoothing: none; }
-#settings-head p {
-  color: #e7dfdd; }
 #settings-head a {
   color: #ffcc00;
   text-decoration: none; }

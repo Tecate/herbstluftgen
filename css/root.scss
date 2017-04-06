@@ -236,7 +236,7 @@ body {
 
 	h2 {
 		background: #121212;
-		color: #ffcc00;
+		color: #9fbc00;
 		margin-top: 0px;
 		margin-bottom: 0px;
 		padding-bottom: 10px;
@@ -244,10 +244,12 @@ body {
 		padding-left: 10px;
 		font: 22px atari_st, sans-serif;
 		cursor: pointer;
+		transition: background 0.25s;
 	}
 
 	h2:hover {
-		background: #3d3d3d;
+		transition: background 1s;
+		background: #000;
 	}
 
 	h3 {
@@ -257,10 +259,11 @@ body {
 		background: rgba(0,0,0,0.2);
 		padding: 5px;
 		font: 16px 'Montserrat', sans-serif;
+		text-transform: uppercase;
 	}
 	p {
 		font-size: 14px;
-		color: #999;
+		// color: #999;
 		margin-top: 0px;
 		margin-bottom: 20px;
 	}
@@ -281,11 +284,14 @@ body {
 	transition: height 0.25s;
 	h1 {
 		padding: 5px;
+		transition: background 0.25s;
 	}
 }
 
+
 .collapsable h1:hover {
-	background: #3d3d3d;
+	background: #000;
+	transition: background 0.25s;
 	cursor: pointer;
 }
 
@@ -296,8 +302,15 @@ body {
 	background: #262626;
 	overflow: hidden;
 	// border-left: 1px solid #ffcc00;
+	h2 {
+		transition: background 0.25s;
+	}
 }
 
+
+.input-container span:before {
+	 content: '> ';
+}
 .input-container {
 	padding: 10px 10px;
 	// background: #000000;
@@ -307,8 +320,12 @@ body {
 		margin-bottom: 10px;
 		display: block;
 		font-family: monospace;
+		font-size: 10px;
 		color: #999;
 		padding-bottom: 10px;
+	}
+	p {
+		color: #fff;
 	}
 }
 
@@ -342,7 +359,7 @@ input[type=color] {
 		text-align: center;
 		border: 0px solid #9fbc00;
 		background: transparent;
-		color: #fff;
+		color: #ffcc00;
 		font: 36px 'atari_st', monospace;
 		margin-top: 0px;
 		margin-bottom: 10px;
@@ -352,7 +369,7 @@ input[type=color] {
 	}
 
 	p {
-		color: #e7dfdd;
+		// color: #e7dfdd;
 	}
 	a { color: #ffcc00; text-decoration: none; }
 }
