@@ -4,7 +4,7 @@
 		<title></title>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -28,6 +28,7 @@
 				<div class="bar-button">7</div>
 				<div class="bar-button">8</div>
 				<div class="bar-button">9</div>
+				<div class="bar-button"><a href="https://scum.systems">Scum.Systems</a></div>
 			</div>
 			<div class="desktop-frame desktop-frame-active">
 				<div class="window-gap">
@@ -59,10 +60,10 @@
 
 		<div id="settings-container">
 			<div class="settings-section" id="settings-head">
-				<h1>Herbstluftgen</h1>
-				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator. This may not be a pixel-perfect representation of what your theme might look like in hlwm, but it's close enough. If you find any bugs or have some feedback: email me at scum@memeware.net</p>
+				<span id="title">HERBSTLUFTGEN ></span>
+				<p>A <a href="https://www.herbstluftwm.org/">herbstluftwm</a> theme generator.<br> Mess around with the settings below and see how it changes the render to the left. Once you've picked some settings that you like, you can copy the output at the bottom right into your ~/.config/herbstluftwm/autostart file. If you find any bugs or have some feedback: email me at scum@memeware.net or at <a href="https://github.com/tecate">https://github.com/tecate</a></p>
 			</div>
-			<div class="settings-section collapsable">
+			<div class="settings-section">
 				<h1>General Settings</h1>
 				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Background Settings</h2>
@@ -75,20 +76,20 @@
 					<div class="input-container">
 						<h3>Window Background Color</h3>
 						<span>hc attr theme.background_color</span>
-						<p>The color behind window contents <u>only visible on resize</u>. You need to set your terminal colors in .Xresources. This color will be the background of the terminals in the render to the left.</p>
+						<p>The color behind window contents <u>only visible on resize</u>. This will be represented in the render as the window background color.</p>
 						<input type="color" id="input-window-bg-color" value="#121212">
 					</div>
 
 					<div class="input-container">
-						<h3>Background Image URL</h3>
-						<span></span>
-						<p>You will need to use a local copy in your autostart.</p>
+						<h3>Background Image</h3>
+						<span>feh --bg-* [path]</span>
+						<p>You will need to use a local copy in your autostart. This requires <a href="https://feh.finalrewind.org/">feh</a>.</p>
 						<input type="file" id="bg-img-upload">
 					</div>
 
 					<div class="input-container">
 						<h3>Background Display</h3>
-						<span>feh --bg-* url</span>
+						<span>feh --bg-* [path]</span>
 						<p>How to apply the background image. Using feh.</p>
 						<select id="bg-display">
 							<option value="tile">Tile</option>
@@ -106,10 +107,10 @@
 							<h3>Monitor Padding</h3>
 							<span>hc pad MONITOR [UP] [RIGHT] [DOWN [LEFT]</span>
 							<p>Padding around outside of monitor. Use this to make room for your bars/panels.</p>
-							<input type="number" id="monitor-padding-top" min="0" value="16">
-							<input type="number" id="monitor-padding-right" min="0" value="0">
-							<input type="number" id="monitor-padding-bottom" min="0" value="0">
-							<input type="number" id="monitor-padding-left" min="0" value="0">
+							Top:<input type="number" id="monitor-padding-top" min="0" value="16">
+							Right:<input type="number" id="monitor-padding-right" min="0" value="0">
+							Bottom:<input type="number" id="monitor-padding-bottom" min="0" value="0">
+							Left:<input type="number" id="monitor-padding-left" min="0" value="0">
 						</div>
 
 <!-- THIS NEEDS TO BE IMPLEMENTED IN JS -->
@@ -123,7 +124,7 @@
 				</div>
 			</div>
 
-			<div class="settings-section collapsable">
+			<div class="settings-section">
 				<h1>Window Borders</h1>
 					<div class="settings-subsection settings-subsection-collapsed">
 						<h2>Inner Border</h2>
@@ -131,18 +132,21 @@
 							<div class="input-container">
 								<h3>Inner Border Width</h3>
 								<span>hc attr theme.inner_width</span>
+								<p>The width of the innermost border on all windows.</p>
 								<input type="number" id="inner-border-width" min="0" value="1">
 							</div>
 
 							<div class="input-container">
 								<h3>Inner Border Active Color</h3>
 								<span>hc attr theme.active.inner_color</span>
+								<p>The color of the innermost border on <b>focused windows</b>.</p>
 								<input type="color" id="inner-border-active" value="#3E4A00">
 							</div>
 
 							<div class="input-container">
 								<h3>Inner Border Inactive Color</h3>
 								<span>hc attr theme.inner_color</span>
+								<p>The color of the innermost border on <b>unfocused windows</b>.</p>
 								<input type="color" id="inner-border-inactive" value="#000000">
 							</div>
 					</div>
@@ -152,25 +156,29 @@
 						<div class="input-container">
 							<h3>Outer Border Width</h3>
 							<span>hc attr theme.border_width</span>
-							<p>Outer border width minus the inner border width.</p>
-							<input type="number" id="outer-border-width" min="0" value="2">
+							<!-- <p>Outer border width minus the inner border width.</p> -->
+							<p>This needs to be big enough to contain your inner border width. Whatever this value is, minus your inner border width will be the size of your outer border.</p>
+							<input type="number" id="outer-border-width" min="0" value="3">
 						</div>
 
 						<div class="input-container">
 							<h3>Outer Border Active Color</h3>
 							<span>hc attr theme.active.color</span>
+							<p>The color of the outermost border on tiled windows and the middle border on floating windows <b>when focused</b>.</p>
 							<input type="color" id="outer-border-active" value="#9fbc00">
 						</div>
 
 						<div class="input-container">
 							<h3>Outer Border Inactive Color</h3>
 							<span>hc attr theme.normal.color</span>
+							<p>The color of the outermost border on tiled windows and the middle border on floating windows <b>when unfocused</b>.</p>
 							<input type="color" id="outer-border-inactive" value="#454545">
 						</div>
 
 						<div class="input-container">
 							<h3>Outer Border Urgent Color</h3>
 							<span>hc attr theme.urgent.color</span>
+							<p>The color of the outermost border on tiled windows and the middle border on floating windows <b>when the window is in an urgent state</b>.</p>
 							<input type="color" id="outer-border-urgent" value="#ffa500">
 						</div>
 					</div>
@@ -178,16 +186,17 @@
 					<h2>Floating Borders</h2>
 
 						<div class="input-container">
-							<h3>Floating Border Width</h3>
+							<h3>Floating Middle Border Width</h3>
 							<span>hc attr theme.floating.border_width</span>
-							<p>The width of the main border minus the width of the inner and outer borders.</p>
-							<input type="number" id="floating-border-width" min="0" value="3">
+							<!-- <p>The width of the main border minus the width of the inner and outer borders.</p> -->
+							<p>This needs to be big enough to contain your inner border width and floating outer border width. Whatever this value is, minus your inner border width and floating outer border with will be the size of your middle border.</p>
+							<input type="number" id="floating-border-width" min="0" value="4">
 						</div>
 
 						<div class="input-container">
 							<h3>Floating Outer Border Width</h3>
 							<span>hc attr theme.floating.outer_width</span>
-							<p>The width of the outer most border on floating windows including the width of the inner 2 borders</p>
+							<p>The width of the outer most border on floating windows.</p>
 							<!-- is 1 in autostart. does not need to include inner borders for config file -->
 							<input type="number" id="floating-outer-border-width" min="0" value="1">
 						</div>
@@ -195,13 +204,14 @@
 						<div class="input-container">
 							<h3>Floating Outer Border Inactive Color</h3>
 							<span>hc attr theme.floating.outer_color</span>
+							<p>The color of the outer most border on floating windows.</p>
 							<input type="color" id="floating-outer-border-inactive" value="#000000">
 						</div>
 					</div>
 
 			</div>
 
-			<div class="settings-section collapsable">
+			<div class="settings-section">
 				<h1>Frame Styles</h1>
 				<div class="settings-subsection settings-subsection-collapsed">
 					<h2>Frame Settings</h2>
@@ -216,7 +226,7 @@
 						<div class="input-container">
 							<h3>Frame Padding</h3>
 							<span>hc set frame_padding</span>
-							<p>Padding around windows inside a frame.</p>
+							<p>Padding around windows inside a frame. This stacks on top of window_gap.</p>
 							<input type="number" id="frame-padding" min="0" value="0">
 						</div>
 
@@ -224,7 +234,7 @@
 							<h3>Always Show Frame</h3>
 							<span>hc set always_show_frame</span>
 							<p>If set, all frames are displayed. If unset, only frames with focus or with windows in it are displayed.</p>
-							<input type="checkbox" id="always-show-frame">
+							<input type="checkbox" checked id="always-show-frame">
 						</div>
 				</div>
 
@@ -234,6 +244,7 @@
 						<div class="input-container">
 							<h3>Frame Border Width</h3>
 							<span>hc set frame_border_width</span>
+							<p>The width of the frame border.</p>
 							<input type="number" id="frame-border-width" min="0" value="1">
 						</div>
 
@@ -241,18 +252,20 @@
 							<h3>Transparent Frame Border Width</h3>
 							<span>hc set frame_transparent_width</span>
 							<p>Specifies the width of the remaining frame colored with frame_bg_active_color if frame_bg_transparent is set.</p>
-							<input type="number" id="trans-frame-border-width" min="0" value="0">
+							<input type="number" id="trans-frame-border-width" min="0" value="5">
 						</div>
 						
 						<div class="input-container">
 							<h3>Frame Border Active Color</h3>
 							<span>hc set frame_border_active_color</span>
+							<p>The color of the frame border when focused.</p>
 							<input type="color" id="frame-border-active" value="#222222">
 						</div>
 
 						<div class="input-container">
 							<h3>Frame Border Inactive Color</h3>
 							<span>hc set frame_border_normal_color</span>
+							<p>The color of the frame border when unfocused.</p>
 							<input type="color" id="frame-border-inactive" value="#101010">
 						</div>
 				</div>
@@ -263,25 +276,25 @@
 						<div class="input-container">
 							<h3>Transparent Frame Background</h3>
 							<span>hc set frame_bg_transparent</span>
-							<input type="checkbox" id="trans-frame-bg">
+							<p>If checked the background of the frame will be transparent.</p>
+							<input type="checkbox" checked id="trans-frame-bg">
 						</div>
 
 						<div class="input-container">
 							<h3>Frame Background Active Color</h3>
 							<span>hc set frame_bg_active_color</span>
+							<p>The background color of the frame if focused.</p>
 							<input type="color" id="frame-bg-active" value="#345F0C">
 						</div>
 						
 						<div class="input-container">
 							<h3>Frame Background Inactive Color</h3>
 							<span>hc set frame_bg_normal_color</span>
+							<p>The background color of the frame if unfocused.</p>
 							<input type="color" id="frame-bg-inactive" value="#565656">
 						</div>
 				</div>
 			</div>
-
-<!-- 			<input type="submit" value="Submit">
-			<input type="reset"> -->
 		</div>
 		<div id="config-output-container">
 			<h1>Config Output</h1>

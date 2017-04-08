@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'atari_st';
+    src: url('../fonts/atari_st/atarist8x16systemfont-webfont.woff2') format('woff2'),
+         url('../fonts/atari_st/atarist8x16systemfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fixedsys';
+    src: url('../fonts/fsex300/fsex300-webfont.woff2') format('woff2'),
+         url('../fonts/fsex300/fsex300-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'coderegular';
+    src: url('../fonts/code/code-webfont.woff2') format('woff2'),
+         url('../fonts/code/code-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

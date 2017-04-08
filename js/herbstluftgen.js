@@ -23,12 +23,6 @@ $( document ).ready(function() {
 		});
 	}
 
-	var bgTile;
-	var bgCenter;
-	var bgFill;
-	var bgMax;
-	var bgScale;
-
 	$("#bg-display").on("change",function(){
 		if ( $(this).val() == "tile" ) {
 			bgReset();
@@ -66,7 +60,7 @@ $( document ).ready(function() {
 		var bgDisplay = $("#bg-display").val().toLowerCase();
 
 
-		var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+		var file    = document.querySelector('input[type=file]').files[0];
 		var reader  = new FileReader();
 
 		reader.onloadend = function () {
@@ -81,8 +75,6 @@ $( document ).ready(function() {
 
 		if (file) {
 		  reader.readAsDataURL(file); //reads the data as a URL
-		} else {
-		   // preview.src = "";
 		}
 
 		// monitor padding
@@ -99,7 +91,7 @@ $( document ).ready(function() {
 		var innerBorderActive = $("#inner-border-active").val();
 		var innerBorderInactive = $("#inner-border-inactive").val();
 
-		var outerBorderWidth = parseInt($("#outer-border-width").val());
+		var outerBorderWidth = parseInt($("#outer-border-width").val()) - innerBorderWidth;
 		var outerBorderActive = $("#outer-border-active").val();
 		var outerBorderInactive = $("#outer-border-inactive").val();
 		var outerBorderUrgent = $("#outer-border-urgent").val();
@@ -108,8 +100,9 @@ $( document ).ready(function() {
 		var floatingOuterBorderWidth = parseInt($("#floating-outer-border-width").val());
 		var floatingOuterBorderInactive = $("#floating-outer-border-inactive").val();
 
+		// box-shadow borders overlap eachother. so the outer borders need to contain the width of the inner borders
 		var totalBorderWidth = innerBorderWidth + outerBorderWidth;
-		var totalFloatingBorderWidth = innerBorderWidth + floatingBorderWidth;
+		var totalFloatingBorderWidth = innerBorderWidth + ((floatingBorderWidth - innerBorderWidth) - floatingOuterBorderWidth);
 		// inner + outer + floating outer
 		var totalFloatingBorderWidth2 = totalFloatingBorderWidth + floatingOuterBorderWidth;
 
@@ -221,7 +214,7 @@ $( document ).ready(function() {
 			$("#config-output").append("hc set frame_transparent_width "+transFrameBorderWidth+"\n");
 			$("#config-output").append("hc set frame_gap "+frameGap+"\n");
 			$("#config-output").append("\n");
-			$("#config-output").append("hc attr theme.active.color '"+outerBorderActive+"'\n");
+			$("#config-output").append("hc attr theme.active.color '"+outerBorderActive+"'\n"); // what is the diffrerence between this and theme.active.outer_color?
 			$("#config-output").append("hc attr theme.normal.color '"+outerBorderInactive+"'\n");
 			$("#config-output").append("hc attr theme.urgent.color '"+outerBorderUrgent+"'\n");
 			$("#config-output").append("hc attr theme.inner_width "+innerBorderWidth+"\n");
@@ -234,7 +227,7 @@ $( document ).ready(function() {
 			$("#config-output").append("hc attr theme.active.outer_color '"+outerBorderActive+"'\n");
 			$("#config-output").append("hc attr theme.background_color '"+windowBgColor+"'\n");
 			$("#config-output").append("\n");
-			$("#config-output").append("hc set window_gap "+windowGap+"\n"); // padding between touching windows stacks
+			$("#config-output").append("hc set window_gap "+windowGap+"\n");
 			$("#config-output").append("hc set frame_padding "+framePadding+"\n");
 			$("#config-output").append("hc pad :0 "+monitorPaddingTop+" "+monitorPaddingRight+" "+monitorPaddingBottom+" "+monitorPaddingLeft+"\n");
 		}
@@ -248,14 +241,15 @@ $( document ).ready(function() {
 	});
 
 	$(".urgent-btn").click(function() {
-	  $(this).parent().parent().toggleClass("urgent");
-	});
-	$(".float-btn").click(function() {
-	  $(this).parent().parent().toggleClass("psudeo-float");
+	  $(this).closest(".desktop-window").toggleClass("urgent");
 	});
 
-	$(".collapsable h1").click(function() {
-	  $(this).closest(".settings-section").toggleClass("settings-section-collapsed");
+	$(".float-btn").click(function() {
+	  $(this).closest(".desktop-window").toggleClass("psudeo-float");
+	});
+
+	$(".settings-section h1").click(function() {
+	  $(this).parent().toggleClass("settings-section-collapsed");
 	});
 
 	$(".settings-subsection h2").click(function() {
