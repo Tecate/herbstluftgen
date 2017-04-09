@@ -92,7 +92,7 @@ body {
 .window-active.window-floating {
   box-shadow: 0px 0px 0px 1px #3E4A00, 0px 0px 0px 3px #9fbc00, 0px 0px 0px 4px #3E4A00; }
 
-.psudeo-float {
+.pseudo-float {
   width: 70%;
   height: 30%;
   margin: 10%; }

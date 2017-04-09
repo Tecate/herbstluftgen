@@ -245,7 +245,7 @@ $( document ).ready(function() {
 	});
 
 	$(".float-btn").click(function() {
-	  $(this).closest(".desktop-window").toggleClass("psudeo-float");
+	  $(this).closest(".desktop-window").toggleClass("pseudo-float");
 	});
 
 	$(".settings-section h1").click(function() {
